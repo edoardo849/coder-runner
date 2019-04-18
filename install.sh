@@ -22,16 +22,16 @@ fi
 
 if [ -z "$cert" ]; then
 
-	if [ ! -d "./certs" ]; then
-		mkdir "./certs"
+	if [ ! -d "$HOME/.ssh" ]; then
+		mkdir "$HOME/.ssh"
 	fi
 
-	openssl genrsa -passout pass:x -out ./certs/coder_kp.key 2048
-	openssl rsa -passin pass:x -in ./certs/coder_kp.key -out ./certs/coder.key
-	rm ./certs/coder_kp.key
-	openssl req -new -key ./certs/coder.key -out ./certs/coder.csr
-	openssl x509 -req -days 365 -in ./certs/coder.csr -signkey ./certs/coder.key -out ./certs/coder.crt
-	echo "Certificate generated in ./certs"
+	openssl genrsa -passout pass:x -out $HOME/.ssh/coder_kp.key 2048
+	openssl rsa -passin pass:x -in $HOME/.ssh/coder_kp.key -out $HOME/.ssh/coder.key
+	rm $HOME/.ssh/coder_kp.key
+	openssl req -new -key $HOME/.ssh/coder.key -out $HOME/.ssh/coder.csr
+	openssl x509 -req -days 365 -in $HOME/.ssh/coder.csr -signkey $HOME/.ssh/coder.key -out $HOME/.ssh/coder.crt
+	echo "Certificate generated in $HOME/.ssh"
 fi
 
 
@@ -52,7 +52,7 @@ wget "https://github.com/codercom/code-server/releases/download/$version/code-se
 rm code-server$version-linux-x64.tar.gz
 rm -rf code-server$version-linux-x64
 
-etcDir=$HOME/etc
+etcDir=$HOME/.config
 if [ ! -d "$etcDir" ]; then
         echo "- Creating $etcDir"
         mkdir $etcDir
