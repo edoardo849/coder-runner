@@ -52,5 +52,16 @@ wget "https://github.com/codercom/code-server/releases/download/$version/code-se
 rm code-server$version-linux-x64.tar.gz
 rm -rf code-server$version-linux-x64
 
+etcDir=$HOME/etc
+if [ ! -d "$etcDir" ]; then
+        echo "- Creating $etcDir"
+        mkdir $etcDir
+fi
+
+if [ ! -f $etcDir/coder.conf ]; then
+    cp ./example_coder.conf $etcDir/coder.conf
+fi
+
+
 echo "Done."
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source $HOME/etc/code-server.conf && \
+source $HOME/etc/coder.conf && \
 	$HOME/bin/code-server $WORKDIR $DATADIR $PORT $PWD $CERT $CERTKEY 
