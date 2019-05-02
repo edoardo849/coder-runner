@@ -20,7 +20,7 @@ then
       echo "The latest release is $version"
 fi
 
-if [ -z "$cert" ]; then
+if [ ! -z "$cert" ]; then
 
 	if [ ! -d "$HOME/.ssh" ]; then
 		mkdir "$HOME/.ssh"
