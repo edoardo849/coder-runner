@@ -26,11 +26,7 @@ if [ ! -f $confDir/coder.conf ]; then
 	cp ./example_coder.conf $confDir/coder.conf
 fi
 
-binDir=$HOME/bin
-if [ ! -d "$binDir" ]; then
-	echo "- Creating $binDir"
-	mkdir $binDir
-fi
+binDir=/usr/bin
 
 repo="codercom/code-server"
 do_install=true
