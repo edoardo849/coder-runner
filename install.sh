@@ -55,7 +55,7 @@ if [ "$do_install" == true ]; then
 	wget "https://github.com/codercom/code-server/releases/download/$version/code-server$version-linux-x64.tar.gz" &&
 		tar -xvzf code-server$version-linux-x64.tar.gz &&
 		chmod +x ./code-server$version-linux-x64/code-server &&
-		mv ./code-server$version-linux-x64/code-server $binDir/code-server
+		sudo mv ./code-server$version-linux-x64/code-server $binDir/code-server
 
 	echo "Cleaning up"
 	rm code-server$version-linux-x64.tar.gz &&

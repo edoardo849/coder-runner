@@ -1,0 +1,12 @@
+[Unit]
+Description=Coder server service.
+
+[Service]
+User=edoardo849_gmail_com
+Group=662069680
+Type=simple
+WorkingDirectory=/home/edoardo849_gmail_com
+ExecStart=/bin/bash --login -c 'source /home/edoardo849_gmail_com/.bashrc; /home/edoardo849_gmail_com/code/coder-runner/coder.sh'
+
+[Install]
+WantedBy=multi-user.target
